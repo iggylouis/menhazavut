@@ -46,19 +46,31 @@ sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome
 log "Disabling lightdm service"
 sudo systemctl disable lightdm.service
 
+# Update package lists
+sudo apt update
+
 # Install Firefox ESR
-sudo apt update
-sudo apt install firefox
+log "Installing Firefox"
+sudo apt install -y firefox
+
+# Install Wine
+log "Installing Wine"
+sudo apt install -y wine
+
+# Install DOSBox
+log "Installing DOSBox"
+sudo apt install -y dosbox
+
+# Install GDebi
+log "Installing GDebi"
+sudo apt install -y gdebi
+
+# Install PlayOnLinux
+log "Installing PlayOnLinux"
+sudo apt install -y playonlinux
+
+# Install GNOME Software (Linux app store)
+log "Installing GNOME Software"
+sudo apt install -y gnome-software
+
 log "Installation completed successfully"
-
-
-sudo apt update
-sudo apt install wine
-log "Installation wine completed successfully"
-
-
-sudo apt update
-sudo apt install dosbox
-log "Installation DOS completed successfully"
-
-
