@@ -55,7 +55,17 @@ sudo apt install -y firefox
 
 # Install Wine
 log "Installing Wine"
-sudo apt install -y wine
+sudo dpkg --add-architecture i386
+wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key
+sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/debian/ bullseye main'
+sudo apt update
+sudo apt install -y --install-recommends winehq-stable
+wine --version
+
+# Install Winetricks (useful for installing common Windows components)
+log "Installing Winetricks"
+sudo apt install -y winetricks
 
 # Install DOSBox
 log "Installing DOSBox"
@@ -73,4 +83,17 @@ sudo apt install -y playonlinux
 log "Installing GNOME Software"
 sudo apt install -y gnome-software
 
+# Install CrossOver (Note: This is a commercial product with a free trial)
+log "Installing CrossOver"
+wget https://media.codeweavers.com/pub/crossover/cxlinux/demo/crossover_22.1.1-1.deb
+sudo dpkg -i crossover_22.1.1-1.deb
+sudo apt-get install -f -y
+rm crossover_22.1.1-1.deb
+
 log "Installation completed successfully"
+
+# Note on running Windows executables
+log "Note: You can now run Windows .exe files using either Wine or CrossOver."
+log "To use Wine, run: wine path/to/your/application.exe"
+log "To use CrossOver, open it from the applications menu and follow the GUI instructions."
+log "CrossOver is a commercial product with a free trial. You may need to purchase a license for continued use."
