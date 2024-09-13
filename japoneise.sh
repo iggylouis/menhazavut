@@ -52,12 +52,13 @@ sudo apt install firefox
 log "Installation completed successfully"
 
 
-# Install wine
 sudo apt update
 sudo apt install wine
 log "Installation wine completed successfully"
 
-# Install DOSbox
+
 sudo apt update
 sudo apt install dosbox
 log "Installation DOS completed successfully"
+
+
